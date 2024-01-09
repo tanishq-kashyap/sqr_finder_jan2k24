@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title> Square Finder </title>
+		<link rel="stylesheet" href="c1.css" />
+		<script>
+			function compute()
+			{
+				event.preventDefault();
+				let num = document.getElementById("num");
+				if (num.value == "")
+				{
+					alert("you did not enter number");
+					num.focus();
+					return;
+				}
+		
+				let n = parseFloat(num.value);
+				let r = n * n;
+				localStorage.setItem("res", r);
+				window.location.href="result.html";
+			}		
+		</script>
+	</head>
+	<body>
+	<center>
+		<h1> Result Page </h1>	
+		<h2 id="msg" />
+		<script>
+			let msg = document.getElementById("msg");
+			let r = localStorage.getItem("res");
+			if (r == null)
+			{
+				msg.innerHTML = "result not found";
+			}
+			else
+			{
+				msg.innerHTML = r;
+			}
+		</script>
+			<br><br>
+			<a href="index.html"> Home </a>
+	</center>
+	</body>
+</html>
